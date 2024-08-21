@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Veg Menu</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+     .menu-text {
+          color: white;
+          font-weight: bold;
+      }
+      .highlight {
+          background-color: yellow;
+          color: black; 
+      }
+      .search-container {
+          position: relative;
+          width: 100%;
+          max-width: 500px;
+      }
+      #searchInput {
+          background-color: transparent;
+          border: 2px solid white;
+          color: white;
+          padding-right: 80px;
+          width: 100%;
+          border-radius: 5px;
+      }
+      #searchButton {
+          position: absolute;
+          right: 0;
+          top: 0;
+          height: 100%;
+          width: 80px;
+          background-color: gray;
+          color: white;
+          border: none;
+          border-left: 2px solid white;
+          border-radius: 5px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+    </style>
+</head>
+<body>
+
+    <!-- Content -->
+    <div class="bg-image" style="background-image: url('bgng.png'); background-size: cover; background-attachment: fixed; height: 100%; padding-top: 150px;">
+        <div class="container menu-text" id="content">
+            <!-- Search Bar -->
+            <div class="container mt-3">
+                <div class="form-group search-container">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Search...">
+                    <button id="searchButton">Search</button>
+                </div>
+            </div>
+       
+            <p style="color: rgba(0, 0, 0, 0);">This Menu is developed by &copy; Kishan Kalandoor</p>
+            <h3>Beverages</h3>
+            <ul>
+                <li>Tea/Coffee - 20</li>
+                <li>Badam Milk - 20</li>
+                <li>Kashaya - 20</li>
+                <li>Horlicks - 20</li>
+                <li>Plain Milk - 15</li>
+                <li>Black Tea - 15</li>
+                <li>Lemon Tea - 15</li>
+                <li>Fresh Lime Soda - 30</li>
+                <li>Fresh Lime Juice - 30</li>
+                <li>Cold Badam - 40</li>
+                <li>Lassi - 40</li>
+                <li>Butter Milk - 15</li>
+            </ul>
+            
+            <h3>Meals</h3>
+            <ul>
+                <li>Meals with Chapathi - 70</li>
+                <li>Meals without Chapathi - 50</li>
+            </ul>
+            
+            <h3>Tiffin</h3>
+            <ul>
+                <li>Idli Sambar - 30</li>
+                <li>Vada Sambar (2 Pcs) - 50</li>
+                <li>Vada Sambar (1 Pcs) - 30</li>
+                <li>Idli Vada (2 Idli 1 Vada) - 60</li>
+                <li>Single Idli Vada - 40</li>
+                <li>Upma - 30</li>
+                <li>Kesari Bath - 40</li>
+                <li>Chow Chow Bath - 50</li>
+                <li>Poori (3 Pcs) - 50</li>
+                <li>Plain Dosa (1 Pcs) - 30</li>
+                <li>Sada Dosa (2 Pcs) - 40</li>
+                <li>Masala Dosa - 40</li>
+                <li>Onion Uttappa - 50</li>
+                <li>Tomato Uttappa - 50</li>
+                <li>Mix Uttappa - 50</li>
+                <li>Ghee Dosa (2 Pcs) - 60</li>
+                <li>Ghee Roast (1 Pcs) - 40</li>
+                <li>Set Dosa (3 Pcs) - 50</li>
+                <li>Tomato Omlet - 50</li>
+                <li>Chapathi (2 Pcs) - 40</li>
+            </ul>
+            
+            <h3>Local Special</h3>
+            <ul>
+                <li>Buns (2 Pcs) - 40</li>
+                <li>Mangaluru Bajji - 40</li>
+                <li>Onion Pakoda - 50</li>
+                <li>Avalakki Mosaru - 40</li>
+                <li>Kadale/Hesaru - 40</li>
+                <li>Sanjeera - 20</li>
+                <li>Biscuit Rotti - 20</li>
+                <li>Chattambade - 15</li>
+            </ul>
+            
+            <h3>Rice Items</h3>
+            <ul>
+                <li>Pulao - 50</li>
+                <li>Lemon Rice - 50</li>
+            </ul>
+            
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("searchButton").addEventListener("click", function() {
+            let searchTerm = document.getElementById("searchInput").value.toLowerCase();
+            let items = document.querySelectorAll("ul li");
+
+            items.forEach(function(item) {
+                if (item.textContent.toLowerCase().includes(searchTerm)) {
+                    item.classList.add("highlight");
+                } else {
+                    item.classList.remove("highlight");
+                }
+            });
+        });
+
+        document.getElementById("searchInput").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                document.getElementById("searchButton").click();
+            }
+        });
+    </script>
+
+</body>
+</html>
